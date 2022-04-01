@@ -1,0 +1,18 @@
+services:
+  graphsproject:
+    build:
+      context: /Users/arsen/Downloads/GraphsProject383
+      dockerfile: GraphsProject/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: graphsproject
+    ports:
+    - published: 2000
+      target: 80
+    - published: 9000
+      target: 443
+    volumes:
+    - /Users/arsen/.aspnet/https:/root/.aspnet/https:ro
+    - /Users/arsen/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+version: '3.4'

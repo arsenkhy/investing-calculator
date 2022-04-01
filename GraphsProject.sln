@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphsProject", "GraphsProject\GraphsProject.csproj", "{FC50996A-D68F-44B0-B05C-F28FE2E4641F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{0C82D01A-455E-48CE-BD2D-B5020E9385C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC50996A-D68F-44B0-B05C-F28FE2E4641F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC50996A-D68F-44B0-B05C-F28FE2E4641F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC50996A-D68F-44B0-B05C-F28FE2E4641F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC50996A-D68F-44B0-B05C-F28FE2E4641F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C82D01A-455E-48CE-BD2D-B5020E9385C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C82D01A-455E-48CE-BD2D-B5020E9385C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C82D01A-455E-48CE-BD2D-B5020E9385C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C82D01A-455E-48CE-BD2D-B5020E9385C2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {15CC20D0-DC12-47D9-AA2A-FE455E05E70E}
+	EndGlobalSection
+EndGlobal

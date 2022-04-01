@@ -1,0 +1,380 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Calculator</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
+
+    <!-- js -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+</head>
+
+<body class="px-5">
+
+    <section>
+
+        <div class="py-5">
+            <h1 class="text-primary">Investment Calculator</h1>
+        </div>
+        <div class="">
+            <form onsubmit="return SendRequest(event)" id="my_form">
+                <div class="d-flex flex-row justify-content-around">
+                    <div class="form-group">
+                        <label class="form-label">Starting Amount:</label>
+                        <br>
+                        <input type="number" value="10000" name="starting" id="starting" class="form-control" min="0" max="1000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Additional Contribution:</label>
+                        <br>
+                        <div class="row">
+                            <input type="number" value="100" name="contribution" id="contribution" class="form-control col-6"
+                                   min="0" max="100000">
+                            <select name="period" id="period" class="form-control col-6">
+                                <option value="annually" >Annually</option>
+                                <option value="monthly" selected="">Monthly</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Rate of Return:</label>
+                        <br>
+                        <input type="number" value="10" name="return_rate" id="return_rate" class="form-control" min="0" max="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Years to Grow:</label>
+                        <br>
+                        <input type="number" value="10" name="years" id="years" class="form-control" min="0" max="50">
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Calculate</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="py-5 text-center">
+            This Investment will be worth <h3 class="text-primary" id="worth"> $47,555 </h3>
+        </div>
+
+    </section>
+
+    <section>
+        <div class="row w-100">
+            <div class="col-md-8" id="barParent">
+                <canvas id="bar"></canvas>
+            </div>
+            <div class="col-md-4" id="pieParent">
+                <canvas id="pie"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="py-5">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Year</th>
+                        <th scope="col">Starting Amount</th>
+                        <th scope="col">Annual Contribution</th>
+                        <th scope="col">Total Contribution</th>
+                        <th scope="col">Interest Earned</th>
+                        <th scope="col">Total Interest Earned</th>
+                        <th scope="col">End Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="tab">
+                    <tr>
+                        <td>2021</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$1,200</td>
+                        <td>$1,104</td>
+                        <td>$1,104</td>
+                        <td>$12,304</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$2,400</td>
+                        <td>$1,345</td>
+                        <td>$2,449</td>
+                        <td>$14,849</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$3,600</td>
+                        <td>$1,611</td>
+                        <td>$4,060</td>
+                        <td>$17,660</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$4,800</td>
+                        <td>$1,906</td>
+                        <td>$5,966</td>
+                        <td>$20,766</td>
+                    </tr>
+                    <tr>
+                        <td>2025</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$6,000</td>
+                        <td>$2,231</td>
+                        <td>$8,197</td>
+                        <td>$24,197</td>
+                    </tr>
+                    <tr>
+                        <td>2026</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$7,200</td>
+                        <td>$2,590</td>
+                        <td>$10,787</td>
+                        <td>$27,987</td>
+                    </tr>
+                    <tr>
+                        <td>2027</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$8,400</td>
+                        <td>$2,987</td>
+                        <td>$13,774</td>
+                        <td>$32,174</td>
+                    </tr>
+                    <tr>
+                        <td>2028</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$9,600</td>
+                        <td>$3,426</td>
+                        <td>$17,200</td>
+                        <td>$36,800</td>
+                    </tr>
+                    <tr>
+                        <td>2029</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$10,800</td>
+                        <td>$3,910</td>
+                        <td>$21,110</td>
+                        <td>$41,910</td>
+                    </tr>
+                    <tr>
+                        <td>2030</td>
+                        <td>$10,000</td>
+                        <td>$1,200</td>
+                        <td>$12,000</td>
+                        <td>$4,445</td>
+                        <td>$25,555</td>
+                        <td>$47,555</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+<script>
+    function SendRequest(e) {
+        e.preventDefault();
+        var xhttp = new XMLHttpRequest();
+        var return_rate = document.getElementById('return_rate').value;
+        var period = document.getElementById('period').value;
+        var years = document.getElementById('years').value;
+        var contribution = document.getElementById('contribution').value;
+        var starting = document.getElementById('starting').value;
+        xhttp.open("GET", "../Home/Calculate?years=" + years + "&contribution=" + contribution +
+            "&starting=" + starting + "&period=" + period + "&return_rate=" + return_rate, true);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function (data) {
+            var response = JSON.parse(this.responseText);
+            var mytable = "";
+            for (var row of response) {
+                mytable += "<tr>" + "<td scope='row'>" + row.year +
+                    "</td>" + "<td>" + row.startAmount + "</td>" + "<td>" + row.contribution +
+                    "</td>" + "<td>" + row.totalContribution + "</td>" + "<td>" +
+                    Math.round(row.interest) + "</td>" + "<td>" + Math.round(row.totalInterest) +
+                    "</td>" + "<td>" + Math.round(row.total) + "</td>" + "</tr>";
+            }
+            document.getElementById("tab").innerHTML = mytable;
+            updateChart(response);
+            //if (this.readyState == 2 && this.status == 200) {
+            //
+            //}
+        };
+    }
+
+    var barchart = new Chart(bar, {
+        type: 'bar',
+        data: {
+            labels: ['2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'], // responsible for how many bars are gonna show on the chart
+            // create 12 datasets, since we have 12 items
+            // data[0] = labels[0] (data for first bar - 'Standing costs') | data[1] = labels[1] (data for second bar - 'Running costs')
+            // put 0, if there is no data for the particular bar
+            datasets: [{
+                label: 'Starting Amount',
+                data: [10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000],
+                backgroundColor: 'rgb(57, 192, 251)'
+            }, {
+                label: 'Total Contributions',
+                data: [1104, 2449, 3600, 4800, 6000, 7200, 8400, 9600, 10800, 12000],
+                backgroundColor: 'rgb(109, 211, 133)'
+            }, {
+                label: 'Total Interest Earned',
+                data: [1200, 2400, 4060, 5966, 8197, 10787, 13774, 17200, 21110, 25555],
+                backgroundColor: 'rgb(255, 208, 50)'
+            },]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                display: false,
+                position: 'right' // place legend on the right side of chart
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true // this should be set to make the bars stacked
+                }],
+                yAxes: [{
+                    stacked: true // this also..
+                }]
+            }
+        }
+    });
+
+
+    var piechart = new Chart(pie, {
+        type: 'pie',
+        data: {
+            labels: ['Starting Amount', 'Total Contributions', 'Total Interest Earned'],
+            datasets: [{
+                label: 'Investment by the end of Last Year',
+                data: [10000, 12000, 25555],
+                backgroundColor: ['rgb(57, 192, 251)', 'rgb(109, 211, 133)', 'rgb(255, 208, 50)']
+            },]
+        },
+        options: {
+            responsive: true,
+            legend: {
+                position: 'right' // place legend on the right side of chart
+            },
+            scales: {
+                xAxes: [{
+                    stacked: true // this should be set to make the bars stacked
+                }],
+                yAxes: [{
+                    stacked: true // this also..
+                }]
+            }
+        }
+    });
+    
+    function updateChart(data) {
+
+        barchart.data.labels = [];
+        barchart.data.datasets = [];
+        barchart.update();
+
+        for (var row of data) {
+
+            barchart.data.labels.push(row.year);
+        }
+
+        contribution = []
+        interest = []
+        starting = []
+        pie = []
+        total = 0
+        for (var row of data) {
+            pie = []
+            contribution.push(Math.round(row.totalContribution));
+            interest.push(Math.round(row.totalInterest));
+            starting.push(Math.round(row.startAmount));
+            pie.push(Math.round(row.totalContribution));
+            pie.push(Math.round(row.totalInterest));
+            pie.push(Math.round(row.startAmount));
+            total = Math.round(row.total);
+        }
+
+        mydataset = [{
+            label: 'Starting Amount',
+            data: starting,
+            backgroundColor: 'rgb(57, 192, 251)'
+        }, {
+            label: 'Total Contribution',
+            data: contribution,
+                backgroundColor: 'rgb(109, 211, 133)'
+        }, {
+            label: 'Total Interest',
+            data: interest,
+                backgroundColor: 'rgb(255, 208, 50)'
+        },]
+
+        barchart.data.datasets.push(mydataset[0]);
+        barchart.data.datasets.push(mydataset[1]);
+        barchart.data.datasets.push(mydataset[2]);
+
+        barchart.update();
+
+        piechart.data.labels = ['Contribution', 'Interest', 'Starting'];
+        piechart.data.datasets = [];
+        piechart.update();
+
+        piedata = {
+            label: 'Investment Balance Last Year',
+            data: pie,
+            backgroundColor: ['rgb(109, 211, 133)', 'rgb(255, 208, 50)', 'rgb(57, 192, 251)']
+        }
+
+        piechart.data.datasets.push(piedata);
+        piechart.update();
+
+        document.getElementById('worth').innerHTML = '$'+total;
+        
+    }
+
+</script>
+
