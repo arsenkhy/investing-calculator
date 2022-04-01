@@ -4,8 +4,8 @@
 
 Application video demo: https://youtu.be/KVAz4QFdP8Q  
 
-![](invest1.PNG)
-![](invest2.PNG)
+![](invest1.png)
+![](invest2.png)
 
 ## Project Summary
 
