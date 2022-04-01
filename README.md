@@ -31,8 +31,11 @@ Important note: I have only running it on the mac OS. I do not have windows, and
 
 - download the project and navigate to a suitable location. or simply do:
 ```sh
-$ git clone https://csil-git1.cs.surrey.sfu.ca/anurshai/investing.git
-$ cd investing
+$ git clone https://github.com/arsenkhy/investing-calculator.git
+```
+and then
+```sh
+$ cd investing-calculator
 ```
 - start the application using docker-compose like this
 ```sh
@@ -43,9 +46,6 @@ $ docker-compose build && docker-compose up
 https://localhost:9000/
 ```
 - Check it out and close whenever you want
-
-Again, I did not have access to running the program on Windows and Linux. So I never tested.
-
 
 ### Interesting features
 
