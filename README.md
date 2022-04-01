@@ -1,5 +1,12 @@
 # Investing Graphs Project
 
+### Screenshots and link to video demonstration
+
+Application video demo: https://youtu.be/KVAz4QFdP8Q  
+
+![](invest1.PNG)
+![](invest2.PNG)
+
 ## Project Summary
 
 ### Goal
@@ -53,10 +60,4 @@ https://localhost:9000/
 - Bar chart and Pie chart, move your mouse
 - Input the value, and just press enter, no need to refresh
 - Table of years,
-- Tap rectangles on the right from the pie chart 
-
-
-
-
-
-
+- Tap rectangles on the right from the pie chart
