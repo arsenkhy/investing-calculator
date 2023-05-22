@@ -2209,11 +2209,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/arsen/Downloads/GraphsProject383/GraphsProject/GraphsProject.csproj",
+      "projectUniqueName": "/Users/arsen/Desktop/Projects/investing-calculator/GraphsProject/GraphsProject.csproj",
       "projectName": "GraphsProject",
-      "projectPath": "/Users/arsen/Downloads/GraphsProject383/GraphsProject/GraphsProject.csproj",
+      "projectPath": "/Users/arsen/Desktop/Projects/investing-calculator/GraphsProject/GraphsProject.csproj",
       "packagesPath": "/Users/arsen/.nuget/packages/",
-      "outputPath": "/Users/arsen/Downloads/GraphsProject383/GraphsProject/obj/",
+      "outputPath": "/Users/arsen/Desktop/Projects/investing-calculator/GraphsProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/arsen/.config/NuGet/NuGet.Config"

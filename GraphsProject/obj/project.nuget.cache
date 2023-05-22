@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "d3hd9nXfko5O4PT3IS1RLAv+OpeodVEXsG7qpHNUi5VGYHOLc6nLGJg2hrH4otXTnOrPLDTbUzK/zhhlxFt6gg==",
+  "dgSpecHash": "aqmlPBljIualyz2LKsYQCf+b0kGSVHeqWxqUSxOn9DDQGMMSPKan/rqu0gW9GEOrkuLk0JrTccbb1ejA80VZeA==",
   "success": true,
-  "projectFilePath": "/Users/arsen/Downloads/GraphsProject383/GraphsProject/GraphsProject.csproj",
+  "projectFilePath": "/Users/arsen/Desktop/Projects/investing-calculator/GraphsProject/GraphsProject.csproj",
   "expectedPackageFiles": [
     "/Users/arsen/.nuget/packages/dynamiclanguageruntime/1.3.0/dynamiclanguageruntime.1.3.0.nupkg.sha512",
     "/Users/arsen/.nuget/packages/ironpython/2.7.11/ironpython.2.7.11.nupkg.sha512",
