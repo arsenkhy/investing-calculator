@@ -1,6 +1,6 @@
 # Investing Graphs Project
 
-### Screenshots and link to video demonstration
+Deployed to Azure Cloud (wait couple sec, first open is cold start): https://graphsproject.azurewebsites.net/ 
 
 Application video demo: https://youtu.be/KVAz4QFdP8Q  
 
